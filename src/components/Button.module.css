@@ -1,0 +1,21 @@
+@import "variables";
+
+.edit_button {
+    color: black;
+    background-color: blueviolet;
+    width: 4.375rem;
+    height: 1.875rem;
+    margin: .625rem;
+}
+
+.delete_button {
+    color: black;
+}
+
+.edit_button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.delete_button:hover {
+    background-color: #ff69b4;
+}
