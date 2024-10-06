@@ -1,4 +1,5 @@
-import styles from "./Button.module.css";
+import React from 'react';
+
 const Button = ({ text, className }) => {
     return (
         <button className={className}>{text}</button>

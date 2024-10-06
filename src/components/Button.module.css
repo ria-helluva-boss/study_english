@@ -4,12 +4,16 @@
     color: black;
     background-color: blueviolet;
     width: 4.375rem;
-    height: 1.875rem;
+    height: 1.875rem; 
     margin: .625rem;
 }
 
 .delete_button {
     color: black;
+    background-color: blueviolet;
+    width: 4.375rem;
+    height: 1.875rem; 
+    margin: .625rem;
 }
 
 .edit_button:hover {

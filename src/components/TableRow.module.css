@@ -1,0 +1,13 @@
+.tableRow td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 20%;
+}
+.tableRow td input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}

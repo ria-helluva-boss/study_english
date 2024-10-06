@@ -20,6 +20,7 @@ const Table = () => {
                     ))}
             </tbody>
         </table>
+        
     );};
 
     export default Table;
