@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import looks from "./TableRow.module.css";
 
 const TableRow = ({english, transcription, russian}) => {
+    const buttons = [
+        { text: "Edit", className: styles.edit_button },
+        { text: "Delete", className: styles.delete_button },
+    ];
 
     const [isSelected, setSelected] = useState(false);
 
@@ -39,12 +43,13 @@ const TableRow = ({english, transcription, russian}) => {
                 />) : russianValue}</td>
 
             <td>
-                <Button className={styles.edit_button} onClick={handleEditClick}>
-                    Edit
-                </Button>
-                <Button className={styles.delete_button} onClick={handleSaveClick}>
-                    Delete
-                </Button>
+            {buttons.map((button, index) => (
+                <Button key={index} 
+                        className={button.className} 
+                        text={button.text}
+                        onClick={button.text === "Edit" ? handleEditClick : handleSaveClick}
+                        />
+                ))}
             </td>
         </tr>
     );
