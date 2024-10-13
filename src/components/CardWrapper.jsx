@@ -12,12 +12,12 @@ const CardWrapper = ({children,cards}) => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length); 
     };
         return (
-        <div>
-        <button onClick={nextCard}>Next</button>
+        <div className={styles.wrapper}>
+        <button className={styles.arrowButton} onClick={nextCard}>Next</button>
         {children} 
-        <button onClick={prevCard}>Previous</button>
-        <div>
-            {currentIndex} / {cards.length}
+        <button className={styles.arrowButton}  onClick={prevCard}>Previous</button>
+        <div className={styles.counter}>
+            {currentIndex + 1} / {cards.length}
         </div>
         </div>
     );
