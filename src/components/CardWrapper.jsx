@@ -5,13 +5,13 @@ const CardWrapper = ({children,cards}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextCard = () => {
-        setCurrentIndex ((prevIndex)=>(prevIndex+1) % cards.length);
+        setCurrentIndex ((prevIndex)=>(prevIndex + 1) % cards.length);
     };//я вообще по-другому сначала делала через if но потом нашла в интернетах эту имбу с оператором % this is so smart, bro
 
     const prevCard = () => {
-        setCurrentIndex ((prevIndex)=> (prevIndex-1) % cards.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length); 
     };
-    return (
+        return (
         <div>
         <button onClick={nextCard}>Next</button>
         {children} 
