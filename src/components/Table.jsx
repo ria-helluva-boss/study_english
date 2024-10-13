@@ -15,8 +15,8 @@ const Table = () => {
             </thead>
             <tbody>
                 {
-                    data.map((word) => (
-                        <TableRow key={word.id} {...word}/>
+                    data.map((rowData) => (
+                        <TableRow key={rowData.id} {...rowData}/>
                     ))}
             </tbody>
         </table>

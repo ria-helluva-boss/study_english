@@ -1,7 +1,8 @@
     import React, { useState } from 'react';
     import styles from './Card.module.css';
 
-    const Card = ({ english, transcription, russian }) => {
+    const Card = ({ card }) => {
+    const { english, transcription, russian } = card;
     const [showTranslation, setShowTranslation] = useState(false);
 
     const handleShowTranslation = () => {

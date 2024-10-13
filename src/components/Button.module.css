@@ -1,25 +1,24 @@
 @import "variables";
 
-.edit_button {
-    color: black;
-    background-color: blueviolet;
+.edit_button, .delete_button {
+    color:aliceblue;
     width: 4.375rem;
     height: 1.875rem; 
     margin: .625rem;
-}
+    border: none;
+    border-radius: .3125rem;
+    cursor: pointer;
 
-.delete_button {
-    color: black;
-    background-color: blueviolet;
-    width: 4.375rem;
-    height: 1.875rem; 
-    margin: .625rem;
 }
-
+.edit_button{
+    background-color:var(--button-color);
+}
+.delete_button{
+    background-color:rgb(220, 63, 63);
+}
 .edit_button:hover {
     background-color: var(--button-hover-color);
 }
-
 .delete_button:hover {
-    background-color: #ff69b4;
+    background-color:rgb(198, 48, 48);
 }

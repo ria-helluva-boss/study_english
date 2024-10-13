@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.arrowButton {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem; 
+    cursor: pointer;
+}
+
+.arrowButton:hover {
+    color: #007bff;
+}
+
+.counter {
+    margin-left: 1rem; 
+}

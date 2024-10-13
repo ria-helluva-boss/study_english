@@ -4,55 +4,85 @@ import React, { useState } from 'react';
 import looks from "./TableRow.module.css";
 
 const TableRow = ({english, transcription, russian}) => {
-    const buttons = [
-        { text: "Edit", className: styles.edit_button },
-        { text: "Delete", className: styles.delete_button },
-    ];
 
-    const [isSelected, setSelected] = useState(false);
+    const [isSelected, setIsSelected] = useState(false);
 
-    const [englishValue, setEnglishValue] = useState(english);
-    const [transcriptionValue, setTranscriptionValue] = useState(transcription);
-    const [russianValue, setRussianValue] = useState(russian);
+    const [value, setValue] = useState({
+        english,
+        transcription,
+        russian,
+        });
 
-    const handleInputChange = (setValue) => (evt) => {
-        setValue(evt.target.value);
-    };
-    const handleEditClick = () => {
-        setSelected(true);
-    };
-    const handleSaveClick = () => {
-        setSelected(false);
-    };
+    const handleEdit = () => setIsSelected(prevValue => !prevValue);
+    
+    const handleClose = () => 
+    {setIsSelected(prevValue => !prevValue);
+    setValue({...value})};
 
-    return (
+    const handleSave = () =>
+    {setIsSelected(prevValue => !prevValue);
+    setValue({...value})};
+
+    function handleChange(evt) {
+        setValue((prevValue) => {
+            return {...prevValue, [evt.target.name]: evt.target.value}
+    });
+}
+
+const buttonsSaveClose = [
+    { text: "Save", className: styles.delete_button, onClick: handleSave },
+    { text: "Close", className: styles.delete_button, onClick: handleClose },
+];
+const buttonsEditDelete = [
+    { text: "Edit", className: styles.edit_button, onClick: handleEdit },
+    { text: "Delete", className: styles.delete_button },
+];
+
+    return isSelected? (
         <tr className={looks.tableRow}>
-            <td>{isSelected ? (
-            <input value={englishValue}
-                onChange={handleInputChange(setEnglishValue)}
-                />) : englishValue}</td>
+            <td> 
+            <input
+                type='text'
+                value={value.english}
+                name='english'
+                onChange={handleChange}
+                />
+                </td>
 
-            <td>{isSelected ? (
-            <input value={transcriptionValue}
-                onChange={handleInputChange(setTranscriptionValue)}
-                />) : transcriptionValue}</td>
+                <td> 
+            <input
+                type='text'
+                value={value.transcription}
+                name='transcription'
+                onChange={handleChange}
+                />
+                </td>
 
-            <td> {isSelected ? (
-            <input value={russianValue}
-                onChange={handleInputChange(setRussianValue)}
-                />) : russianValue}</td>
+                <td> 
+            <input
+                type='text'
+                value={value.russian}
+                name='russian'
+                onChange={handleChange}
+                />
+                </td>
 
             <td>
-            {buttons.map((button, index) => (
-                <Button key={index} 
-                        className={button.className} 
-                        text={button.text}
-                        onClick={button.text === "Edit" ? handleEditClick : handleSaveClick}
-                        />
-                ))}
+            {buttonsSaveClose.map((button) => (
+            <Button {...button} />
+            ))}
             </td>
-        </tr>
-    );
-};
+        </tr>) : (
+            <tr className={looks.tableRow}>
+                <td>{value.english}</td>
+                <td>{value.transcription}</td>
+                <td>{value.russian}</td>
+                <td>
+                {buttonsEditDelete.map((button) => (
+            <Button {...button} />
+            ))}
+                </td>
+            </tr>
+        );};
 
 export default TableRow;
