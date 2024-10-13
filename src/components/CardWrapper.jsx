@@ -11,14 +11,16 @@ const CardWrapper = ({children,cards}) => {
     const prevCard = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length); 
     };
-        return (
+    return (
         <div className={styles.wrapper}>
-        <button className={styles.arrowButton} onClick={nextCard}>Next</button>
-        {children} 
-        <button className={styles.arrowButton}  onClick={prevCard}>Previous</button>
-        <div className={styles.counter}>
-            {currentIndex + 1} / {cards.length}
-        </div>
+            <div className={styles.buttonContainer}>
+                <button className={styles.arrowButton} onClick={prevCard}>Previous</button>
+                {React.cloneElement(children, { card: cards[currentIndex] })}
+                <button className={styles.arrowButton} onClick={nextCard}>Next</button>
+            </div>
+            <div className={styles.counter}>
+                {currentIndex + 1} / {cards.length}
+            </div>
         </div>
     );
 };

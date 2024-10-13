@@ -1,19 +1,29 @@
 .wrapper {
     display: flex;
+    flex-direction: column; 
     align-items: center;
+    justify-content: flex-start; 
+    height: 100vh; 
+    margin-top: 4.375rem;
+}
+
+.buttonContainer {
+    display: flex; 
+    justify-content: center;
+    width: 100%; 
 }
 
 .arrowButton {
     background-color: transparent;
     border: none;
-    font-size: 2rem; 
+    font-size: 1.375rem; 
     cursor: pointer;
 }
 
 .arrowButton:hover {
-    color: #007bff;
+    color:var(--primary-color);
 }
 
 .counter {
-    margin-left: 1rem; 
+    margin-top: .625rem;
 }
