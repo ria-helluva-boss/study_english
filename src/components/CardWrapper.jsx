@@ -14,7 +14,7 @@ const CardWrapper = ({children,cards}) => {
     return (
         <div>
         <button onClick={nextCard}>Next</button>
-        {React.cloneElement(children, { card: cards[currentIndex] })} 
+        {children} 
         <button onClick={prevCard}>Previous</button>
         <div>
             {currentIndex} / {cards.length}
