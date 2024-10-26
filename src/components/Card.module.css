@@ -3,13 +3,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 12.5rem; 
-    height: 15.625rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    width: 18.75rem; 
+    height: 21.875rem;
+    background-color: aliceblue;
+    border: 1px solid var(--primary-color);
     border-radius: .625rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1.25rem; 
+    gap: .625rem;
 }
 
 .englishWord {
@@ -26,9 +26,7 @@
 .showTranslationButton {
     color:aliceblue;
     background-color:var(--button-color);
-    padding-left: .625rem;
-    padding-right: .625rem;
-    height: 1.875rem; 
+    padding: .75rem .9375rem;
     border: none;
     border-radius: .3125rem;
     cursor: pointer;

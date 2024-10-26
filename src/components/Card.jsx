@@ -16,7 +16,7 @@ return (
         <p className={styles.russianWord}>{russian}</p>
     ) : (
         <button className={styles.showTranslationButton} onClick={handleShowTranslation}>
-        Проверить
+        ПРОВЕРИТЬ
         </button>
     )}
     </div>

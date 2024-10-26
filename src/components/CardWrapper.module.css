@@ -10,18 +10,18 @@
 .buttonContainer {
     display: flex; 
     justify-content: center;
+    align-items: center;
     width: 100%; 
+    gap: 1.875rem;
 }
 
 .arrowButton {
-    background-color: transparent;
-    border: none;
-    font-size: 1.375rem; 
+    color: var(--button-color);
     cursor: pointer;
 }
 
 .arrowButton:hover {
-    color:var(--primary-color);
+    color:var(--button-hover-color);
 }
 
 .counter {

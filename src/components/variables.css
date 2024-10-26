@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #6ab4e6;
+    --primary-color: hsl(204, 71%, 66%);
     --button-color:#4CAF50;
     --button-hover-color:#3e8e41;
 }
