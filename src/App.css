@@ -49,16 +49,3 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

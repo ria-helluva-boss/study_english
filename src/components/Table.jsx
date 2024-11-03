@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import TableRow from "./TableRow";
 import data from "../data";
 import styles from "./Table.module.css";

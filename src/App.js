@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Logo from './components/Logo';
 import styles from './components/Navigation.module.css';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 function App() {
   return (
     <div>
       <Router>
-        <div>
+        <div className={styles.container}>
           <header>
             <nav>
               <ul className={styles.navigation}>
@@ -29,7 +30,7 @@ function App() {
             </Routes>
           </main>
           <footer>
-
+            <Footer/>
           </footer>
         </div>
       </Router>

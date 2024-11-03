@@ -21,10 +21,6 @@ text-align: center;
     color: white;
 }
 
-.table tr:hover {
-    background-color: #82afea;
-}
-
 .table td:last-child {
     width: 10.625rem;
 }

@@ -1,3 +1,7 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
 .navigation {
     display: flex;
     padding: 10px 0px;
@@ -7,4 +11,19 @@
     background-color: var(--primary-color);
     margin:  0px 0px .625rem 0px;
     border-bottom: 3.125rem;
+}
+.navigation a {
+    color: white;
+}
+
+.navigation a:hover {
+    color:#ac1d6c;
+}
+
+.navigation a:visited {
+    color: white;
+}
+.container_main{
+    flex: 1 1 auto;
+    border: 1px solid black;
 }
