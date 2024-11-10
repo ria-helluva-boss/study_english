@@ -1,15 +1,18 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect} from 'react';
 import styles from './Card.module.css';
 import Button from "./Button";
 import useCount from './useCount';
 
-const Card = ({ card, setShowTranslation, showTranslation }) => {
+const Card = ({ card, setShowTranslation, showTranslation, markAsLearned, isLearned, learnedCount }) => {
 const { english, transcription, russian } = card;
 const focusButton = useRef (null);
 const {count} = useCount(showTranslation);
 
 const handleShowTranslation = () => {
-    setShowTranslation(true);
+    if (!isLearned) { 
+        setShowTranslation(true);
+        markAsLearned(); 
+    }
 };
 
 useEffect (() => {
@@ -26,9 +29,10 @@ return (
         <Button text ={'ПРОВЕРИТЬ'}
         className={styles.showTranslationButton}
         onClick={handleShowTranslation} 
-        ref={focusButton}/>
+        ref={focusButton}
+        disabled={isLearned}/>
     )}
-    <p>Всего изучено слов: {count}</p>
+    <p>Всего изучено слов: {learnedCount}</p>
     </div>
 );
 };

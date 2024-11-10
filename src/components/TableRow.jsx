@@ -13,6 +13,12 @@ const TableRow = ({english, transcription, russian}) => {
         russian,
         });
 
+    const [errors, setErrors] = useState({
+        english:false,
+        transcription:false,
+        russian:false,
+        });
+
     const handleEdit = () => setIsSelected(prevValue => !prevValue);
     
     const handleClose = () => 
@@ -27,10 +33,15 @@ const TableRow = ({english, transcription, russian}) => {
         setValue((prevValue) => {
             return {...prevValue, [evt.target.name]: evt.target.value}
     });
+    setErrors({...errors,
+            [evt.target.name]:
+            evt.target.value.trim()===''?'Поле должно быть заполнено' : false});
 }
 
+const isButtonDisabled = Object.values(errors).some((element) => element);
+
 const buttonsSaveClose = [
-    { text: "Save", className: styles.delete_button, onClick: handleSave },
+    { text: "Save", className: styles.delete_button, onClick: handleSave, disabled: isButtonDisabled },
     { text: "Close", className: styles.delete_button, onClick: handleClose },
 ];
 const buttonsEditDelete = [
@@ -46,6 +57,7 @@ const buttonsEditDelete = [
                 value={value.english}
                 name='english'
                 onChange={handleChange}
+                placeholder={errors.english && errors.english}
                 />
                 </td>
 
@@ -55,6 +67,7 @@ const buttonsEditDelete = [
                 value={value.transcription}
                 name='transcription'
                 onChange={handleChange}
+                placeholder={errors.transcription && errors.transcription}
                 />
                 </td>
 
@@ -64,6 +77,7 @@ const buttonsEditDelete = [
                 value={value.russian}
                 name='russian'
                 onChange={handleChange}
+                placeholder={errors.russian && errors.russian}
                 />
                 </td>
 
@@ -79,7 +93,7 @@ const buttonsEditDelete = [
                 <td>{value.russian}</td>
                 <td>
                 {buttonsEditDelete.map((button) => (
-            <Button {...button} />
+            <Button {...button} disabled={button.disabled} key={button.text} />
             ))}
                 </td>
             </tr>
