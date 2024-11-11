@@ -32,6 +32,8 @@ const useValidation = () => {
                         setImportErrorText({...inputErrorText, [nameField]:''})
                     }
                     break;
+                default:
+                        break;
             }
         }
     }

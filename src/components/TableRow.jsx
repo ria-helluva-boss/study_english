@@ -1,9 +1,23 @@
 import Button from "./Button";
 import styles from "./Button.module.css";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import looks from "./TableRow.module.css";
+import useValidation from "./useValidation";
 
 const TableRow = ({english, transcription, russian}) => {
+    const {validateField,
+        inputErrorText, 
+        isInputError, 
+        isDisabled, 
+        setIsDisabled} = useValidation();
+
+useEffect(() => {
+    if(isInputError.english || isInputError.transcription || isInputError.russian){
+        setIsDisabled(true);
+    }else{
+        setIsDisabled(false);
+    }
+}, [isInputError]);
 
     const [isSelected, setIsSelected] = useState(false);
 
@@ -11,12 +25,6 @@ const TableRow = ({english, transcription, russian}) => {
         english,
         transcription,
         russian,
-        });
-
-    const [errors, setErrors] = useState({
-        english:false,
-        transcription:false,
-        russian:false,
         });
 
     const handleEdit = () => setIsSelected(prevValue => !prevValue);
@@ -30,18 +38,16 @@ const TableRow = ({english, transcription, russian}) => {
     setValue({...value})};
 
     function handleChange(evt) {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        validateField(name,value);
         setValue((prevValue) => {
-            return {...prevValue, [evt.target.name]: evt.target.value}
+            return {...prevValue, [name]: value}
     });
-    setErrors({...errors,
-            [evt.target.name]:
-            evt.target.value.trim()===''?'Поле должно быть заполнено' : false});
 }
 
-const isButtonDisabled = Object.values(errors).some((element) => element);
-
 const buttonsSaveClose = [
-    { text: "Save", className: styles.delete_button, onClick: handleSave, disabled: isButtonDisabled },
+    { text: "Save", className: styles.delete_button, onClick: handleSave, disabled: isDisabled },
     { text: "Close", className: styles.delete_button, onClick: handleClose },
 ];
 const buttonsEditDelete = [
@@ -57,7 +63,8 @@ const buttonsEditDelete = [
                 value={value.english}
                 name='english'
                 onChange={handleChange}
-                placeholder={errors.english && errors.english}
+                placeholder={inputErrorText.english && isInputError.english
+                            && (inputErrorText.english)}
                 />
                 </td>
 
@@ -67,7 +74,6 @@ const buttonsEditDelete = [
                 value={value.transcription}
                 name='transcription'
                 onChange={handleChange}
-                placeholder={errors.transcription && errors.transcription}
                 />
                 </td>
 
@@ -77,7 +83,6 @@ const buttonsEditDelete = [
                 value={value.russian}
                 name='russian'
                 onChange={handleChange}
-                placeholder={errors.russian && errors.russian}
                 />
                 </td>
 
