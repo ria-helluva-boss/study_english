@@ -22,3 +22,21 @@
 .delete_button:hover {
     background-color:rgb(198, 48, 48);
 }
+
+.edit_button:disabled,
+.delete_button:disabled {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); 
+  cursor: not-allowed; 
+}
+.edit_button:hover {
+    background-color: var(--button-hover-color);
+  }
+  .delete_button:hover {
+    background-color: rgb(198, 48, 48);
+  }
+

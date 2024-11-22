@@ -32,6 +32,29 @@ const useValidation = () => {
                         setImportErrorText({...inputErrorText, [nameField]:''})
                     }
                     break;
+                    
+                case 'transcription':
+                    if(valueField.match(/^[а-яА-ЯёЁ.,\-'\[\] ]+$/)){
+                        setIsInputError({...isInputError, [nameField]:true})
+                        setImportErrorText({...inputErrorText, [nameField]:'Используй только английские буквы'})
+                    }
+                    else{
+                        setIsInputError({...isInputError, [nameField]:false})
+                        setImportErrorText({...inputErrorText, [nameField]:''})
+                    }
+                    break;
+
+                    case 'russian':
+                    if(valueField.match(/^[a-zA-Z]+$/)){
+                        setIsInputError({...isInputError, [nameField]:true})
+                        setImportErrorText({...inputErrorText, [nameField]:'Используй только русские буквы'})
+                    }
+                    else{
+                        setIsInputError({...isInputError, [nameField]:false})
+                        setImportErrorText({...inputErrorText, [nameField]:''})
+                    }
+                    break;
+                    
                 default:
                         break;
             }

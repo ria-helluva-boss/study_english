@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import appstyles from './App.module.css';
 import Table from './components/Table';
 import data from './data';
 import Carousel  from './components/Carousel';
@@ -12,7 +12,6 @@ function App() {
   return (
     <div>
       <Router>
-        <div className={styles.container}>
           <header>
             <nav>
               <ul className={styles.navigation}>
@@ -22,7 +21,7 @@ function App() {
               </ul>
             </nav>
           </header>
-          <main>
+          <main className={appstyles.container}>
             <Routes>
               <Route path='/' element={<Table/>} />
               <Route path='/game' element={<Carousel cards ={data}/>} />
@@ -32,7 +31,6 @@ function App() {
           <footer>
             <Footer/>
           </footer>
-        </div>
       </Router>
     </div>
   );

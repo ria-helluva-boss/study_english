@@ -2,7 +2,9 @@ import Button from "./Button";
 import styles from "./Button.module.css";
 import React, { useEffect, useState } from 'react';
 import looks from "./TableRow.module.css";
+import Notification from "./Notification";
 import useValidation from "./useValidation";
+import useNotification from "./useNotification";
 
 const TableRow = ({english, transcription, russian}) => {
     const {validateField,
@@ -11,13 +13,17 @@ const TableRow = ({english, transcription, russian}) => {
         isDisabled, 
         setIsDisabled} = useValidation();
 
-useEffect(() => {
-    if(isInputError.english || isInputError.transcription || isInputError.russian){
-        setIsDisabled(true);
-    }else{
-        setIsDisabled(false);
-    }
-}, [isInputError]);
+    const {notificationMessage,
+        isVisible,
+        showNotification} = useNotification ();
+
+    useEffect(() => {
+        if(isInputError.english || isInputError.transcription || isInputError.russian){
+            setIsDisabled(true);
+        }else{
+            setIsDisabled(false);
+        }
+    }, [isInputError]);
 
     const [isSelected, setIsSelected] = useState(false);
 
@@ -27,35 +33,35 @@ useEffect(() => {
         russian,
         });
 
-    const handleEdit = () => setIsSelected(prevValue => !prevValue);
+const handleEdit = () => setIsSelected(prevValue => !prevValue);
     
     const handleClose = () => 
     {setIsSelected(prevValue => !prevValue);
-    setValue({...value})};
+    setValue({english,transcription,russian})};
 
     const handleSave = () =>
-    {setIsSelected(prevValue => !prevValue);
+    {setIsSelected(false);
     setValue({...value})};
 
     function handleChange(evt) {
         const name = evt.target.name;
         const value = evt.target.value;
         validateField(name,value);
+
+        if(isInputError[name]) {
+            showNotification(inputErrorText[name]);
+        }
+
         setValue((prevValue) => {
             return {...prevValue, [name]: value}
     });
 }
-
-const buttonsSaveClose = [
-    { text: "Save", className: styles.delete_button, onClick: handleSave, disabled: isDisabled },
-    { text: "Close", className: styles.delete_button, onClick: handleClose },
-];
-const buttonsEditDelete = [
-    { text: "Edit", className: styles.edit_button, onClick: handleEdit },
-    { text: "Delete", className: styles.delete_button },
-];
-
-    return isSelected? (
+    return(
+        <>
+    {isVisible && (
+        <Notification message={notificationMessage} onClose={() => showNotification('')} />
+    )}
+    {isSelected? (
         <tr className={looks.tableRow}>
             <td> 
             <input
@@ -74,6 +80,8 @@ const buttonsEditDelete = [
                 value={value.transcription}
                 name='transcription'
                 onChange={handleChange}
+                placeholder={inputErrorText.transcription && isInputError.transcription
+                    && (inputErrorText.transcription)}
                 />
                 </td>
 
@@ -83,25 +91,29 @@ const buttonsEditDelete = [
                 value={value.russian}
                 name='russian'
                 onChange={handleChange}
+                placeholder={inputErrorText.russian && isInputError.russian
+                    && (inputErrorText.russian)}
                 />
                 </td>
 
             <td>
-            {buttonsSaveClose.map((button) => (
-            <Button {...button} />
-            ))}
+            <Button text="Save" className={styles.delete_button} onClick={handleSave} disabled={isDisabled} />
+            <Button text="Close" className={styles.delete_button} onClick={handleClose} />
             </td>
+
         </tr>) : (
             <tr className={looks.tableRow}>
                 <td>{value.english}</td>
                 <td>{value.transcription}</td>
                 <td>{value.russian}</td>
                 <td>
-                {buttonsEditDelete.map((button) => (
-            <Button {...button} disabled={button.disabled} key={button.text} />
-            ))}
+                <Button text="Edit" className={styles.edit_button} onClick={handleEdit} />
+                <Button text="Delete" className={styles.delete_button} />
                 </td>
             </tr>
-        );};
+        )}
+        </>
+        );
+        };
 
 export default TableRow;
