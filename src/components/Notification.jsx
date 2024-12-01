@@ -5,7 +5,7 @@ const Notification = ({ message, onClose }) => {
     return (
         <div className={styles.notification}>
             <span>{message}</span>
-            <button onClick={onClose}>×</button>
+            <button onClick={onClose} />
         </div>
     );
 };

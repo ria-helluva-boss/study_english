@@ -1,36 +1,40 @@
 import React from 'react';
 import appstyles from './App.module.css';
 import Table from './components/Table';
-import data from './data';
-import Carousel  from './components/Carousel';
+import Carousel from './components/Carousel';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Logo from './components/Logo';
 import styles from './components/Navigation.module.css';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
+import { useStore } from './WordStoreContext';
+
 function App() {
+
+  const { wordStore } = useStore();
+
   return (
     <div>
       <Router>
-          <header>
-            <nav>
-              <ul className={styles.navigation}>
-              <li><Link to='/game'>Тренажёр</Link></li>
-                <li><Logo /></li>
-                <li><Link to='/game'>Тренажёр</Link></li>
-              </ul>
-            </nav>
-          </header>
-          <main className={appstyles.container}>
-            <Routes>
-              <Route path='/' element={<Table/>} />
-              <Route path='/game' element={<Carousel cards ={data}/>} />
-              <Route path='*' element={<NotFound/>} />
-            </Routes>
-          </main>
-          <footer>
-            <Footer/>
-          </footer>
+        <header>
+          <nav>
+            <ul className={styles.navigation}>
+              <li><Link className={styles.link} to='/game'>Тренажёр</Link></li>
+              <li><Logo /></li>
+              <li><a className={styles.link} href="#">+7 (999) 888-77-66</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main className={appstyles.container}>
+          <Routes>
+            <Route path='/' element={<Table />} />
+            <Route path='/game' element={<Carousel />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
       </Router>
     </div>
   );
