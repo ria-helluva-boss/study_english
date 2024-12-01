@@ -34,7 +34,7 @@ const useValidation = () => {
                     break;
                     
                 case 'transcription':
-                    if(valueField.match(/^[а-яА-ЯёЁ.,\-'\[\] ]+$/)){
+                    if(valueField.match(/^[а-яА-ЯёЁ]+$/)){
                         setIsInputError({...isInputError, [nameField]:true})
                         setImportErrorText({...inputErrorText, [nameField]:'Используй только английские буквы'})
                     }

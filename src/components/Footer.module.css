@@ -4,11 +4,10 @@
     background-color: var(--primary-color);
     align-items: center;
     padding: 30px 0px;
-    color: white;
     margin: 10px 0px;
-    cursor: pointer;
 }
-
-.container_item:hover {
-    color: #ac1d6c;
+.container_item {
+    color: white;
+    transition: color 0.4s ease;
+    cursor: pointer;
 }

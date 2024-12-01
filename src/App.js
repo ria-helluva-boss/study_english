@@ -7,11 +7,7 @@ import Logo from './components/Logo';
 import styles from './components/Navigation.module.css';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
-import { useStore } from './WordStoreContext';
-
 function App() {
-
-  const { wordStore } = useStore();
 
   return (
     <div>
@@ -21,7 +17,7 @@ function App() {
             <ul className={styles.navigation}>
               <li><Link className={styles.link} to='/game'>Тренажёр</Link></li>
               <li><Logo /></li>
-              <li><a className={styles.link} href="#">+7 (999) 888-77-66</a></li>
+              <li><a href="#" className={styles.link}>+7 (999) 888-77-66</a></li>
             </ul>
           </nav>
         </header>

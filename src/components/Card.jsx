@@ -1,12 +1,10 @@
 import React, { useRef, useEffect} from 'react';
 import styles from './Card.module.css';
 import Button from "./Button";
-import useCount from './useCount';
 
 const Card = ({ card, setShowTranslation, showTranslation, markAsLearned, isLearned, learnedCount }) => {
 const { english, transcription, russian } = card;
 const focusButton = useRef (null);
-const {count} = useCount(showTranslation);
 
 const handleShowTranslation = () => {
     if (!isLearned) { 
