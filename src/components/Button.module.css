@@ -1,42 +1,62 @@
 @import "variables";
 
-.edit_button, .delete_button {
-    color:aliceblue;
-    width: 4.375rem;
-    height: 1.875rem; 
-    margin: .625rem;
-    border: none;
-    border-radius: .3125rem;
-    cursor: pointer;
+.edit_button,
+.delete_button,
+.save_button {
+  color: aliceblue;
+  width: 4.375rem;
+  height: 1.875rem;
+  margin: .625rem;
+  border: none;
+  border-radius: .3125rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
 }
-.edit_button{
-    background-color:var(--button-color);
+
+.edit_button {
+  background-color: var(--button-color);
 }
-.delete_button{
-    background-color:rgb(220, 63, 63);
+
+.delete_button {
+  background-color: rgb(220, 63, 63);
 }
-.edit_button:hover {
-    background-color: var(--button-hover-color);
+
+.save_button {
+  background-color: rgb(159, 91, 178);
 }
+
+.save_button .edit_button:hover {
+  background-color: var(--button-hover-color);
+}
+
 .delete_button:hover {
-    background-color:rgb(198, 48, 48);
+  background-color: rgb(183, 40, 40);
 }
 
-.edit_button:disabled,
-.delete_button:disabled {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.3
-  ); 
-  cursor: not-allowed; 
+.save_button:hover {
+  background-color: rgb(144, 57, 169);
 }
+
+.save_button:disabled {
+  background-color: rgba(0,
+      0,
+      0,
+      0.3);
+  cursor: not-allowed;
+}
+
+.save_button:disabled:hover {
+  background-color: rgba(0,
+      0,
+      0,
+      0.3);
+}
+
 .edit_button:hover {
-    background-color: var(--button-hover-color);
-  }
-  .delete_button:hover {
-    background-color: rgb(198, 48, 48);
-  }
+  background-color: var(--button-hover-color);
+}
 
+.delete_button:hover {
+  background-color: rgb(198, 48, 48);
+}
