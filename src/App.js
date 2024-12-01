@@ -7,12 +7,8 @@ import Logo from './components/Logo';
 import styles from './components/Navigation.module.css';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
-import { useStore } from './WordStoreContext';
 
 function App() {
-
-  const { wordStore } = useStore();
-
   return (
     <div>
       <Router>
