@@ -6,11 +6,16 @@ class WordStore {
     isLoaded = true;
 
     constructor () {
-        makeAutoObservable(this);
+        makeAutoObservable(this, {
+            loadData: false,
+            handleAdd: false,
+            handleSave: false,
+            handleDelete: false,
+            });
         this.loadData();
     }
 
-     loadData = async () => {
+    loadData = async () => {
         this.isLoaded = true;
 
         try {

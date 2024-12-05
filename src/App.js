@@ -1,5 +1,5 @@
 import React from 'react';
-import appstyles from './App.module.css';
+import './App.css';
 import Table from './components/Table';
 import Carousel from './components/Carousel';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -10,18 +10,18 @@ import Footer from './components/Footer';
 function App() {
 
   return (
-    <div>
+    <div className={styles.body}>
       <Router>
         <header>
-          <nav>
-            <ul className={styles.navigation}>
-              <li><Link className={styles.link} to='/game'>Тренажёр</Link></li>
+          <nav className={styles.navigation}>
+            <ul className={styles.navigation__ul}>
               <li><Logo /></li>
+              <li><Link className={`${styles.link} ${styles.link__trainer}`} to='/game'>Тренажер</Link></li>
               <li><a href="#" className={styles.link}>+7 (999) 888-77-66</a></li>
             </ul>
           </nav>
         </header>
-        <main className={appstyles.container}>
+        <main className={styles.container}>
           <Routes>
             <Route path='/' element={<Table />} />
             <Route path='/game' element={<Carousel />} />

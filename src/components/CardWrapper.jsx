@@ -6,9 +6,9 @@ const CardWrapper = ({children,onPrevCard,onNextCard,currentIndex,cards}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.buttonContainer}>
-                <ArrowBack className={styles.arrowButton} onClick={onPrevCard}>Previous</ArrowBack>
+                <ArrowBack fontSize='large' className={styles.arrowButton} onClick={onPrevCard}>Previous</ArrowBack>
                 {children}
-                <ArrowForward className={styles.arrowButton} onClick={onNextCard}>Next</ArrowForward>
+                <ArrowForward fontSize='large' className={styles.arrowButton} onClick={onNextCard}>Next</ArrowForward>
             </div>
             <p className={styles.counter}>
                 {currentIndex + 1} / {cards.length}

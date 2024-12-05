@@ -23,7 +23,7 @@
 }
 
 .save_button {
-  background-color: #9a35ff;
+  background-color: #8e58f9;
 }
 
 .delete_button:hover {
@@ -31,7 +31,7 @@
 }
 
 .save_button:hover {
-  background-color:#7d1edd;
+  background-color:#7320d2;
 }
 
 .save_button:disabled {
