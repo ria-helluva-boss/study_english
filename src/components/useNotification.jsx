@@ -11,7 +11,7 @@ const useNotification = () => {
         setTimeout(() => {
             setNotificationMessage('');
             setIsVisible(false);
-        }, 10000);
+        }, 7000);
     };
 
     const closeMessage = () => {
