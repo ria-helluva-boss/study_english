@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const useValidation = () => {
-    const [inputErrorText, setImportErrorText] = useState({
+    const [inputErrorText, setInputErrorText] = useState({
         english:'',
         transcription:'',
         russian:'',
@@ -16,45 +16,38 @@ const useValidation = () => {
     const [isDisabled, setIsDisabled] = useState(false);
 
     function validateField (nameField, valueField){
-        if(valueField === ''){
+        setIsInputError(prev => ({ ...prev, [nameField]: false }));
+        setInputErrorText(prev => ({ ...prev, [nameField]: '' }));
+
+        if(valueField.trim() === ''){
             setIsInputError({...isInputError, [nameField]:true})
-            setImportErrorText({...inputErrorText, [nameField]:'Поле должно быть заполнено'})
+            setInputErrorText({...inputErrorText, [nameField]:'Поле должно быть заполнено'})
         }
         else{
             switch(nameField){
                 case 'english':
-                    if(valueField.match(/^[а-яА-ЯёЁ]+$/)){
-                        setIsInputError({...isInputError, [nameField]:true})
-                        setImportErrorText({...inputErrorText, [nameField]:'Используй только английские буквы'})
-                    }
-                    else{
-                        setIsInputError({...isInputError, [nameField]:false})
-                        setImportErrorText({...inputErrorText, [nameField]:''})
-                    }
-                    break;
-                    
                 case 'transcription':
                     if(valueField.match(/^[а-яА-ЯёЁ]+$/)){
                         setIsInputError({...isInputError, [nameField]:true})
-                        setImportErrorText({...inputErrorText, [nameField]:'Используй только английские буквы'})
+                        setInputErrorText({...inputErrorText, [nameField]:'Используй только английские буквы'})
                     }
                     else{
                         setIsInputError({...isInputError, [nameField]:false})
-                        setImportErrorText({...inputErrorText, [nameField]:''})
+                        setInputErrorText({...inputErrorText, [nameField]:''})
                     }
                     break;
 
                     case 'russian':
                     if(valueField.match(/^[a-zA-Z]+$/)){
                         setIsInputError({...isInputError, [nameField]:true})
-                        setImportErrorText({...inputErrorText, [nameField]:'Используй только русские буквы'})
+                        setInputErrorText({...inputErrorText, [nameField]:'Используй только русские буквы'})
                     }
                     else{
                         setIsInputError({...isInputError, [nameField]:false})
-                        setImportErrorText({...inputErrorText, [nameField]:''})
+                        setInputErrorText({...inputErrorText, [nameField]:''})
                     }
                     break;
-                    
+
                 default:
                         break;
             }

@@ -1,0 +1,60 @@
+@import "variables";
+
+.addWordForm {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    align-items: center;
+    gap: .125rem;
+}
+
+.addWordForm__div {
+    text-align: center; 
+    width: 20%;
+    height: 3.125rem;
+    align-items: center; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif; 
+    padding: 0; 
+    gap: .3125rem;
+}
+.addWordForm__input {
+    width: 100%; 
+    height: 100%; 
+    padding: 0.625rem; 
+    border: none; 
+    text-align: center; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif;  
+    background-color:aliceblue; 
+    border: 1px solid var(--primary-color);
+}
+
+.addWordForm__error {
+    margin-top: .25rem;
+    color: red;
+}
+
+.addWordForm__input:focus {
+    border: none;
+    outline: 2px solid rgba(100, 61, 231, 0.5);
+}
+
+.add_button {
+    color: aliceblue;
+    width: 6.25rem;
+    height: 3.125rem;
+    margin: .625rem;
+    border: none;
+    border-radius: .3125rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add_button {
+    background-color: #8e58f9;
+}
+
+.add_button:hover {
+    background-color:#7320d2;
+}

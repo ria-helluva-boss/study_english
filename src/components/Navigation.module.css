@@ -10,7 +10,7 @@ container {
     justify-content: center;
     padding: 10px 0px;
     background-color: var(--primary-color);
-    margin: 0px 0px .625rem 0px;
+    margin: 0px 0px 1.25rem 0px;
     color: white;
 }
 .navigation__ul{

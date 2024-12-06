@@ -2,16 +2,15 @@
 
 .edit_button,
 .delete_button,
-.save_button {
+.save_button{
   color: aliceblue;
-  width: 4.375rem;
-  height: 1.875rem;
+  width: 5.125rem;
+  height: 2.25rem;
   margin: .625rem;
   border: none;
   border-radius: .3125rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
 }
 
 .edit_button {

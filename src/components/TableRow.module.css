@@ -1,7 +1,7 @@
 .tableRow td {
     text-align: center; 
     width: 20%;
-    height: 2.5rem;
+    height: 3.75rem;
     align-items: center; 
     font-size: 16px; 
     font-family: Arial, sans-serif; 
@@ -15,10 +15,13 @@
     height: 100%; 
     padding: 0.625rem; 
     border: none; 
-    outline: 2px solid rgba(76, 175, 80, 0.5);
     text-align: center; 
     font-size: 16px; 
     font-family: Arial, sans-serif; 
+}
+
+.tableRow td input:focus { 
+    outline: 2px solid rgba(100, 61, 231, 0.5);
 }
 
 .tableRow td,

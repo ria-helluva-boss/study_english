@@ -10,7 +10,7 @@ import { useStore } from '../WordStoreContext';
 
 const TableRow = observer(({ rowData }) => {
     const { wordStore } = useStore();
-    const { id, english, transcription, russian } = rowData;
+    const { id } = rowData;
     const [isSelected, setIsSelected] = useState(false);
     const [value, setValue] = useState({ ...rowData });
 
