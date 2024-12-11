@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Notification.module.css";
+import styles from "../modules_css/Notification.module.css";
 
 const Notification = ({ message, onClose }) => {
     return (

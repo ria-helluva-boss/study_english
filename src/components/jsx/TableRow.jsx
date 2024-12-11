@@ -1,12 +1,12 @@
 import Button from "./Button";
-import styles from "./Button.module.css";
+import styles from "../modules_css/Button.module.css";
 import React, { useEffect, useState } from 'react';
-import looks from "./TableRow.module.css";
+import looks from "../modules_css/TableRow.module.css";
 import Notification from "./Notification";
 import useValidation from "./useValidation";
 import useNotification from "./useNotification";
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../WordStoreContext';
+import { useStore } from '../../WordStoreContext';
 
 const TableRow = observer(({ rowData }) => {
     const { wordStore } = useStore();

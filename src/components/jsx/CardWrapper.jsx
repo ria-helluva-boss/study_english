@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './CardWrapper.module.css';
+import styles from '../modules_css/CardWrapper.module.css';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 
 const CardWrapper = ({children,onPrevCard,onNextCard,currentIndex,cards}) => {

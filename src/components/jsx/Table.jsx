@@ -1,11 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import TableRow from "./TableRow";
-import styles from "./Table.module.css";
+import styles from "../modules_css/Table.module.css";
 import LoadingIndicator from './LoadingIndicator'; 
 import ErrorNotification from './ErrorNotification'; 
 import AddWordForm from './AddWordForm'; 
-import { useStore } from '../WordStoreContext';
+import { useStore } from '../../WordStoreContext';
 
 const Table = observer(() => {
     const { wordStore } = useStore(); 

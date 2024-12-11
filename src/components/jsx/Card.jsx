@@ -1,5 +1,5 @@
 import React, { useRef, useEffect} from 'react';
-import styles from './Card.module.css';
+import styles from '../modules_css/Card.module.css';
 import Button from "./Button";
 
 const Card = ({ card, setShowTranslation, showTranslation, markAsLearned, isLearned, learnedCount }) => {

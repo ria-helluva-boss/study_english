@@ -2,7 +2,7 @@ import Card from './Card';
 import CardWrapper from './CardWrapper';
 import React, { useState } from 'react';
 import useCount from './useCount'; 
-import { useStore } from '../WordStoreContext';
+import { useStore } from '../../WordStoreContext';
 import { observer } from 'mobx-react-lite';
 import LoadingIndicator from './LoadingIndicator';
 

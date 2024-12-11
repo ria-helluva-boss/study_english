@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Button from "./Button";
 import {observer} from 'mobx-react-lite';
-import {useStore} from '../WordStoreContext';
-import styles from './AddWordForm.module.css';
+import {useStore} from '../../WordStoreContext';
+import styles from '../modules_css/AddWordForm.module.css';
 import useValidation from './useValidation'; 
 
 const AddWordForm = observer (() => {
@@ -85,7 +85,7 @@ const AddWordForm = observer (() => {
                 )}
             </div>
 
-            <Button className={styles.add_button} type="submit" text="Add Word" disabled={isDisabled} />
+            <Button className={styles.add_button} text="Add Word" disabled={isDisabled} onClick={handleSubmit} />
         </form>
     );
 });

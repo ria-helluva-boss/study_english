@@ -62,7 +62,6 @@ class WordStore {
             if (!response.ok) {
                 throw new Error ('Не удалось получить слова');
             }
-            this.words.push(newWord);
         } catch (error) {
             console.error('Ошибка добавления слова:', error);
         }

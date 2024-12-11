@@ -15,7 +15,7 @@ container {
 }
 .navigation__ul{
     display: flex;
-    width: 70vw;
+    width: 85vw;
     justify-content: space-between;
     align-items: center;
 }

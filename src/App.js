@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import Table from './components/Table';
-import Carousel from './components/Carousel';
+import './App.css'
+import Table from './components/jsx/Table';
+import Carousel from './components/jsx/Carousel';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Logo from './components/Logo';
-import styles from './components/Navigation.module.css';
-import NotFound from './components/NotFound';
-import Footer from './components/Footer';
+import Logo from './components/jsx/Logo';
+import styles from './components/modules_css/Navigation.module.css';
+import NotFound from './components/jsx/NotFound';
+import Footer from './components/jsx/Footer';
 function App() {
 
   return (
